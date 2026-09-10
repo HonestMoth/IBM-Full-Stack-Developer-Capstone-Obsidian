@@ -265,5 +265,7 @@ Theme: Obsidian Luxury
 Course: IBM Full Stack Software Developer Professional Certificate
 Platform: Coursera
 Type: Full Stack Application Development Capstone
+
+
 👨‍💻 Author
 Developed as part of the IBM Full Stack Software Developer Professional Certificate Capstone Project.
