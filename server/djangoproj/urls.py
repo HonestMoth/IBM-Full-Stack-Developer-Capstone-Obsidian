@@ -27,11 +27,9 @@ urlpatterns = [
     path('postreview/<int:dealer_id>', TemplateView.as_view(template_name="index.html")),
 
     # Capstone-required public API aliases.
-    # These proxy to the existing Django views, which in turn call the
-    # Express/MongoDB service through /fetchDealers, /fetchDealer and
-    # /fetchReviews/dealer endpoints.
     path('fetchDealers', views.get_dealerships, name='fetch_dealers'),
     path('fetchDealers/<str:state>', views.get_dealerships, name='fetch_dealers_by_state'),
     path('fetchDealer/<int:dealer_id>', views.get_dealer_details, name='fetch_dealer'),
     path('fetchReviews/dealer/<int:dealer_id>', views.get_dealer_reviews, name='fetch_dealer_reviews'),
+    path('analyze/<str:input_txt>', views.analyze_review, name='analyze_review'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
