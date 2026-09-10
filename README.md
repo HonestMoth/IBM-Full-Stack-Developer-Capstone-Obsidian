@@ -92,31 +92,49 @@ DevOps
 - GitHub Actions
 - Docker
 - Kubernetes configuration
-📁 Project Structure
+
+## 📁 Project Structure
+
+```text
 IBM-Full-Stack-Developer-Capstone-Project-OBSIDIAN-v9/
-├── .github/workflows/
-│   └── cicd.yml
+├── .github/
+│   └── workflows/
+│       └── cicd.yml
+│
 ├── server/
 │   ├── djangoproj/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   │
 │   ├── djangoapp/
 │   │   ├── migrations/
 │   │   ├── microservices/
+│   │   │   ├── app.py
+│   │   │   └── requirements.txt
 │   │   ├── models.py
 │   │   ├── views.py
 │   │   ├── restapis.py
 │   │   └── populate.py
+│   │
 │   ├── database/
 │   │   ├── app.js
 │   │   ├── dealership.js
 │   │   ├── review.js
 │   │   └── data/
+│   │       ├── dealerships.json
+│   │       ├── reviews.json
+│   │       └── car_records.json
+│   │
 │   ├── frontend/
 │   │   ├── src/
 │   │   └── static/
+│   │
 │   ├── Dockerfile
 │   ├── deployment.yaml
 │   ├── entrypoint.sh
 │   └── requirements.txt
+│
 ├── .env.example
 ├── .gitignore
 ├── CAPSTONE_SUBMISSION_CHECKLIST.md
