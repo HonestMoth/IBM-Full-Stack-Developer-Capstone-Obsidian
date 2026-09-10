@@ -10,14 +10,11 @@ The frontend uses an **Obsidian Luxury** automotive showroom design with a dark 
 
 ## 📸 Project Preview
 
-<!-- ADD SCREENSHOT: Main Dealers page -->
-<!-- ![Dealers](screenshots/dealers-home.png) -->
+<img width="959" height="515" alt="image" src="https://github.com/user-attachments/assets/12cefd1c-b8df-4bc4-a22d-59ac8019a322" />
 
 The application allows users to register, log in, browse dealerships, filter dealerships by state, view dealership details, explore cars, read and submit reviews, and receive automatic sentiment analysis.
 
 ---
-
-## ✨ Features
 
 ### 🔐 Authentication
 - User registration
@@ -26,28 +23,28 @@ The application allows users to register, log in, browse dealerships, filter dea
 - Protected review functionality
 - Django administration
 
-<!-- ADD SCREENSHOT: Register page -->
-<!-- ![Register](screenshots/register.png) -->
+<img width="959" height="514" alt="image" src="https://github.com/user-attachments/assets/aab499e1-6fb6-4aec-aca4-895aed3eb700" />
 
 ### 🏪 Dealerships
 - Browse dealerships across different states
 - Filter dealerships by state
 - View dealership details
 - View address, contact information, location and reviews
+<img width="952" height="528" alt="image" src="https://github.com/user-attachments/assets/498050c5-666e-4dc3-99fd-122d6e9fde86" />
 
-<!-- ADD SCREENSHOT: Dealership list -->
-<!-- ![Dealers](screenshots/dealers.png) -->
 
 ### 🗺️ State Filtering
 Users can filter dealerships by state, including Kansas and other available states.
 
-<!-- ADD SCREENSHOT: Kansas filter -->
-<!-- ![State Filter](screenshots/state-filter.png) -->
+<img width="953" height="497" alt="image" src="https://github.com/user-attachments/assets/804c9b58-f979-4385-bf27-5473194c1cbe" />
+
 
 ### 🚗 Car Inventory
 - Car makes and models
 - Car selection during review submission
 - Purchase year and purchase date
+<img width="956" height="382" alt="image" src="https://github.com/user-attachments/assets/9519e201-a5e0-4d96-9d86-71a243209766" />
+
 
 ### 📝 Reviews
 - View dealership reviews
@@ -55,17 +52,16 @@ Users can filter dealerships by state, including Kansas and other available stat
 - Select purchased car information
 - Automatic sentiment classification
 
-<!-- ADD SCREENSHOT: Review form -->
-<!-- ![Review Form](screenshots/review-form.png) -->
+<img width="946" height="536" alt="image" src="https://github.com/user-attachments/assets/f70c5182-bb07-4ce5-afef-2b596f9b8c34" />
+
 
 ### 🤖 Sentiment Analysis
 A dedicated Flask microservice uses **NLTK VADER** to classify reviews as Positive, Negative, or Neutral.
 
-```text
 Fantastic services → Positive
 Worst services     → Negative
-<!-- ADD SCREENSHOT: Positive and negative sentiments -->
-<!-- ![Sentiment](screenshots/sentiment-analysis.png) -->
+<img width="947" height="500" alt="image" src="https://github.com/user-attachments/assets/4ff0ba4d-7096-4286-9e97-40bb4c446877" />
+
 
 Django SQLite
  ├── Users
@@ -169,8 +165,6 @@ Create a Django administrator:
 python manage.py createsuperuser
 Django Admin:
 http://localhost:8000/admin/
-<!-- ADD SCREENSHOT: Django Admin -->
-<!-- ![Django Admin](screenshots/django-admin.png) -->
 
 🔌 API Endpoints
 Authentication
@@ -210,8 +204,7 @@ The workflow:
 6. Sets up Node.js
 7. Installs frontend dependencies
 8. Builds the React frontend
-<!-- ADD SCREENSHOT: Successful GitHub Actions run -->
-<!-- ![CI/CD](screenshots/cicd-success.png) -->
+
 
 Capstone Task 23: CI/CD evidence.
 🐳 Docker & Kubernetes
@@ -221,17 +214,6 @@ server/entrypoint.sh
 Kubernetes:
 server/deployment.yaml
 These files provide containerization and deployment configuration.
-☁️ Deployment
-Production URL:
-ADD DEPLOYED APPLICATION URL HERE
-<!-- ADD SCREENSHOT AFTER DEPLOYMENT -->
-<!-- ![Deployed Home](screenshots/deployed-home.png) -->
-
-<!-- ADD SCREENSHOT AFTER DEPLOYMENT -->
-<!-- ![Deployed Dealer](screenshots/deployed-dealer-details.png) -->
-
-<!-- ADD SCREENSHOT AFTER DEPLOYMENT -->
-<!-- ![Deployed Review](screenshots/deployed-review.png) -->
 
 🔒 Security
 The application includes:
@@ -259,6 +241,7 @@ The project demonstrates:
 - Docker
 - Kubernetes configuration
 - Cloud deployment
+
 🎓 Project Information
 Project: Car Dealership Application
 Theme: Obsidian Luxury
