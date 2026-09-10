@@ -1,0 +1,18 @@
+.auth-page { min-height: calc(100vh - 79px); display: grid; place-items: center; padding: 50px 20px; }
+.auth-card { width: min(460px, 100%); padding: 38px; border: 1px solid var(--bronze); background: var(--graphite); }
+.auth-title { margin: 7px 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 2.7rem; }
+.auth-subtitle { margin: 0 0 28px; color: var(--stone); line-height: 1.6; }
+.auth-form { display: grid; gap: 18px; }
+.auth-field { display: grid; gap: 8px; }
+.auth-field label { color: var(--stone); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.auth-field input { width: 100%; padding: 13px; background: #181818; color: var(--ivory); border: 1px solid var(--bronze); border-radius: 2px; outline: none; }
+.auth-field input:focus { border-color: var(--gold); }
+.auth-actions { display: grid; gap: 10px; margin-top: 4px; }
+.action_button { width: 100%; padding: 13px 18px; margin: 0; cursor: pointer; border: 1px solid var(--gold); border-radius: 2px; background: var(--gold); color: var(--obsidian); font-size: .76rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.action_button:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
+.action_button.secondary { background: transparent; color: var(--ivory); border-color: var(--bronze); }
+.action_button.secondary:hover { border-color: var(--gold); color: var(--gold); }
+.auth-register { margin: 20px 0 0; color: var(--stone); text-align: center; font-size: .84rem; }
+.loginlink { color: var(--gold); text-decoration: none; }
+.loginlink:hover { color: var(--gold-hover); }
+.input_field { margin: 0; }
