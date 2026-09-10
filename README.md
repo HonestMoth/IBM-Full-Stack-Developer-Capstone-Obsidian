@@ -1,324 +1,269 @@
-# Car Dealership Application - Full Stack Capstone Project
+# 🚗 Car Dealership Application — Obsidian Luxury
 
-## Windows quick start
+A full-stack car dealership application developed for the **IBM Full Stack Software Developer Professional Certificate Capstone Project** on Coursera.
 
-After MongoDB is running, open PowerShell in this project folder and run:
+The application combines a **React frontend**, **Django backend**, **Node.js/Express dealership service**, **MongoDB**, and a **Flask/NLTK sentiment-analysis microservice**.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\start-capstone.ps1
-```
-
-It installs missing dependencies and starts Express, Flask, Django, and React. After about 15 seconds, open `http://localhost:3000/dealers`.
-
-![Python](https://img.shields.io/badge/python-v3.12-blue.svg)
-![Django](https://img.shields.io/badge/django-v3.2.5-green.svg)
-![React](https://img.shields.io/badge/react-v18.2.0-blue.svg)
-![Node.js](https://img.shields.io/badge/node.js-v16+-green.svg)
-![MongoDB](https://img.shields.io/badge/mongodb-v4.4+-brightgreen.svg)
-![Docker](https://img.shields.io/badge/docker-enabled-blue.svg)
-
-## 📖 Overview
-
-This is a comprehensive full-stack web application developed as the capstone project for IBM's Full Stack Application Development course on Coursera. The application provides a complete car dealership management system where users can browse dealerships, view car inventory, read and post reviews, and manage user accounts.
-
-## 🏗️ Architecture
-
-The application follows a modern microservices architecture:
-
-- **Frontend**: React.js with responsive design and Bootstrap CSS
-- **Backend**: Django REST API framework
-- **Database**: 
-  - MongoDB for dealership and review data
-  - Django SQLite for user management and car models
-- **Microservices**: 
-  - Sentiment Analysis Service (Flask + NLTK)
-  - Dealership Data Service (Node.js + Express + MongoDB)
-- **Containerization**: Docker containers for all services
-- **Deployment**: Kubernetes ready with deployment manifests
-
-## ✨ Features
-
-### 🔐 User Management
-- User registration and authentication
-- Secure login/logout functionality
-- Session management
-- User profile management
-
-### 🏪 Dealership Management
-- Browse all dealerships across different states
-- Filter dealerships by state
-- View detailed dealership information including:
-  - Address and contact details
-  - Location coordinates
-  - Available inventory
-
-### 🚗 Car Inventory
-- Comprehensive car database with:
-  - Multiple car makes (Toyota, Honda, Ford, etc.)
-  - Various car models and types
-  - Year range from 1886 to 2025
-  - Car categories: Sedan, SUV, Coupe, Truck, etc.
-
-### 📝 Review System
-- Post detailed reviews for dealerships
-- Include car purchase information:
-  - Car make and model
-  - Purchase year
-  - Purchase date
-- **AI-Powered Sentiment Analysis**:
-  - Automatic sentiment detection (Positive/Negative/Neutral)
-  - Visual sentiment indicators with emoji icons
-  - Powered by NLTK's VADER sentiment analyzer
-
-### 📱 User Interface
-- Modern, responsive design
-- Bootstrap-powered styling
-- Mobile-friendly interface
-- Intuitive navigation
-- Real-time feedback and alerts
-
-## 🛠️ Technology Stack
-
-### Frontend
-- **React.js 18.2.0** - Modern UI library
-- **React Router DOM 6.19.0** - Client-side routing
-- **Bootstrap CSS** - Responsive styling
-- **CSS3** - Custom styling and animations
-
-### Backend
-- **Django 3.2.5** - Python web framework
-- **Django REST Framework** - API development
-- **Gunicorn** - WSGI HTTP Server
-- **Python 3.12** - Programming language
-
-### Database & Data Management
-- **MongoDB** - NoSQL database for dealerships and reviews
-- **Mongoose** - MongoDB object modeling for Node.js
-- **SQLite** - Default Django database for user management
-
-### Microservices
-- **Flask** - Lightweight Python framework for sentiment analysis
-- **Node.js + Express** - Backend service for dealership data
-- **NLTK** - Natural Language Toolkit for sentiment analysis
-- **VADER Sentiment Analyzer** - Lexicon-based sentiment analysis
-
-### DevOps & Deployment
-- **Docker** - Containerization
-- **Kubernetes** - Container orchestration
-- **Docker Compose** - Multi-container applications
-- **IBM Cloud Container Registry** - Container image storage
-
-## 📁 Project Structure
-
-```
-capstoneAle/
-├── server/
-│   ├── djangoproj/                 # Django project configuration
-│   │   ├── settings.py             # Django settings
-│   │   ├── urls.py                 # URL routing
-│   │   └── wsgi.py                 # WSGI application
-│   ├── djangoapp/                  # Main Django application
-│   │   ├── models.py               # Data models (CarMake, CarModel)
-│   │   ├── views.py                # API views and business logic
-│   │   ├── restapis.py             # External API integration
-│   │   ├── populate.py             # Database population scripts
-│   │   └── microservices/          # Sentiment analysis service
-│   │       ├── app.py              # Flask sentiment analyzer
-│   │       └── requirements.txt    # Python dependencies
-│   ├── database/                   # MongoDB service
-│   │   ├── app.js                  # Express server
-│   │   ├── dealership.js           # Dealership model
-│   │   ├── review.js               # Review model
-│   │   └── data/                   # JSON data files
-│   │       ├── dealerships.json    # Dealership data
-│   │       ├── reviews.json        # Review data
-│   │       └── car_records.json    # Car inventory
-│   ├── frontend/                   # React application
-│   │   ├── src/
-│   │   │   ├── App.js              # Main app component
-│   │   │   └── components/         # React components
-│   │   │       ├── Login/          # Login functionality
-│   │   │       ├── Register/       # User registration
-│   │   │       ├── Dealers/        # Dealership components
-│   │   │       └── Header/         # Navigation header
-│   │   └── static/                 # Static HTML pages
-│   ├── Dockerfile                  # Docker configuration
-│   ├── deployment.yaml             # Kubernetes deployment
-│   ├── requirements.txt            # Python dependencies
-│   └── entrypoint.sh              # Docker entrypoint script
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Python 3.12+
-- Node.js 16+
-- MongoDB 4.4+
-- Docker (optional but recommended)
-
-### Local Development Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd capstoneAle
-   ```
-
-2. **Backend Setup (Django)**
-   ```bash
-   cd server
-   pip install -r requirements.txt
-   python manage.py migrate
-   python manage.py collectstatic
-   python manage.py runserver 8000
-   ```
-
-3. **Database Service (MongoDB)**
-   ```bash
-   cd server/database
-   npm install
-   node app.js
-   ```
-
-4. **Sentiment Analysis Service**
-   ```bash
-   cd server/djangoapp/microservices
-   pip install -r requirements.txt
-   python app.py
-   ```
-
-5. **Frontend Setup (React)**
-   ```bash
-   cd server/frontend
-   npm install
-   npm start
-   ```
-
-### 🐳 Docker Deployment
-
-1. **Build and run with Docker Compose**
-   ```bash
-   cd server/database
-   docker-compose up -d
-   ```
-
-2. **Build Django application**
-   ```bash
-   cd server
-   docker build -t dealership-app .
-   docker run -p 8000:8000 dealership-app
-   ```
-
-3. **Deploy to Kubernetes**
-   ```bash
-   kubectl apply -f deployment.yaml
-   ```
-
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env` file in the server directory:
-
-```env
-DJANGO_SECRET_KEY=your-secret-key-here
-DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
-MONGODB_URI=mongodb://mongo_db:27017/dealershipsDB
-SENTIMENT_ANALYZER_URL=http://localhost:5050/
-BACKEND_URL=http://localhost:3030
-```
-
-### Database Configuration
-- MongoDB runs on port 3030 for the dealership service
-- Django SQLite database for user management
-- Sentiment analysis service runs on port 5050
-
-## 📊 API Endpoints
-
-### Authentication
-- `POST /djangoapp/login` - User login
-- `POST /djangoapp/register` - User registration
-- `GET /djangoapp/logout` - User logout
-
-### Dealerships
-- `GET /djangoapp/get_dealers` - Get all dealerships
-- `GET /djangoapp/get_dealers/{state}` - Get dealerships by state
-- `GET /djangoapp/dealer/{id}` - Get specific dealership
-
-### Reviews
-- `GET /djangoapp/reviews/dealer/{id}` - Get reviews for dealership
-- `POST /djangoapp/add_review` - Add new review
-
-### Cars
-- `GET /djangoapp/get_cars` - Get all car models
-
-### Sentiment Analysis
-- `GET /analyze/{text}` - Analyze sentiment of text
-
-## 🧪 Testing
-
-Run the test suite:
-
-```bash
-# Django tests
-python manage.py test
-
-# React tests
-cd frontend
-npm test
-
-# API testing with curl
-curl -X GET http://localhost:8000/djangoapp/get_dealers
-```
-
-## 🌟 Key Features Implemented
-
-### IBM Cloud Integration
-- **IBM Cloud Container Registry** for image storage
-- **IBM Kubernetes Service** for deployment
-- **Cloud-native architecture** following IBM best practices
-
-### Sentiment Analysis
-- **NLTK VADER** sentiment analyzer
-- **Real-time sentiment scoring** for reviews
-- **Visual sentiment indicators** (positive/negative/neutral)
-
-### Security Features
-- **CSRF protection** for forms
-- **Authentication middleware** for protected routes
-- **Session management** for user state
-- **Input validation** and sanitization
-
-### Performance Optimizations
-- **Dockerized microservices** for scalability
-- **Database indexing** for faster queries
-- **Static file serving** optimization
-- **Lazy loading** for React components
-
-## 🤝 Contributing
-
-This is a capstone project for educational purposes. The application demonstrates:
-
-- Full-stack development skills
-- Microservices architecture
-- Cloud deployment practices
-- Modern web development frameworks
-- Database integration
-- API development and consumption
-- DevOps practices
-
-## 📝 License
-
-This project is part of the IBM Full Stack Developer Professional Certificate program on Coursera and is intended for educational purposes.
-
-## 👨‍💻 Author
-
-Developed as part of the IBM Full Stack Application Development Capstone Project.
+The frontend uses an **Obsidian Luxury** automotive showroom design with a dark premium interface and champagne-gold accents.
 
 ---
 
-**Course**: IBM Full Stack Software Developer Professional Certificate  
-**Platform**: Coursera  
-**Project Type**: Full Stack Application Development Capstone  
+## 📸 Project Preview
 
-*This application showcases modern full-stack development practices including React frontend, Django backend, microservices architecture, AI integration, and cloud deployment.*
+<!-- ADD SCREENSHOT: Main Dealers page -->
+<!-- ![Dealers](screenshots/dealers-home.png) -->
+
+The application allows users to register, log in, browse dealerships, filter dealerships by state, view dealership details, explore cars, read and submit reviews, and receive automatic sentiment analysis.
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+- User registration
+- Login and logout
+- Session-based authentication
+- Protected review functionality
+- Django administration
+
+<!-- ADD SCREENSHOT: Register page -->
+<!-- ![Register](screenshots/register.png) -->
+
+### 🏪 Dealerships
+- Browse dealerships across different states
+- Filter dealerships by state
+- View dealership details
+- View address, contact information, location and reviews
+
+<!-- ADD SCREENSHOT: Dealership list -->
+<!-- ![Dealers](screenshots/dealers.png) -->
+
+### 🗺️ State Filtering
+Users can filter dealerships by state, including Kansas and other available states.
+
+<!-- ADD SCREENSHOT: Kansas filter -->
+<!-- ![State Filter](screenshots/state-filter.png) -->
+
+### 🚗 Car Inventory
+- Car makes and models
+- Car selection during review submission
+- Purchase year and purchase date
+
+### 📝 Reviews
+- View dealership reviews
+- Submit authenticated reviews
+- Select purchased car information
+- Automatic sentiment classification
+
+<!-- ADD SCREENSHOT: Review form -->
+<!-- ![Review Form](screenshots/review-form.png) -->
+
+### 🤖 Sentiment Analysis
+A dedicated Flask microservice uses **NLTK VADER** to classify reviews as Positive, Negative, or Neutral.
+
+```text
+Fantastic services → Positive
+Worst services     → Negative
+<!-- ADD SCREENSHOT: Positive and negative sentiments -->
+<!-- ![Sentiment](screenshots/sentiment-analysis.png) -->
+
+Django SQLite
+ ├── Users
+ ├── CarMake
+ └── CarModel
+🛠️ Technology Stack
+Frontend
+- React
+- React Router
+- JavaScript
+- CSS3
+Backend
+- Django
+- Django REST Framework
+- Python
+Dealership Service
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+Sentiment Service
+- Flask
+- NLTK
+- VADER Sentiment Analyzer
+DevOps
+- Git
+- GitHub
+- GitHub Actions
+- Docker
+- Kubernetes configuration
+📁 Project Structure
+IBM-Full-Stack-Developer-Capstone-Project-OBSIDIAN-v9/
+├── .github/workflows/
+│   └── cicd.yml
+├── server/
+│   ├── djangoproj/
+│   ├── djangoapp/
+│   │   ├── migrations/
+│   │   ├── microservices/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── restapis.py
+│   │   └── populate.py
+│   ├── database/
+│   │   ├── app.js
+│   │   ├── dealership.js
+│   │   ├── review.js
+│   │   └── data/
+│   ├── frontend/
+│   │   ├── src/
+│   │   └── static/
+│   ├── Dockerfile
+│   ├── deployment.yaml
+│   ├── entrypoint.sh
+│   └── requirements.txt
+├── .env.example
+├── .gitignore
+├── CAPSTONE_SUBMISSION_CHECKLIST.md
+├── LICENSE
+├── README.md
+├── start-capstone.ps1
+└── stop-capstone.ps1
+🚀 Getting Started
+Requirements
+- Python 3.12+
+- Node.js
+- npm
+- MongoDB
+- Git
+Optional:
+- Docker
+- Kubernetes CLI
+Windows Quick Start
+Make sure MongoDB is running, then open PowerShell in the project root:
+powershell -ExecutionPolicy Bypass -File .\start-capstone.ps1
+The script starts:
+Service	Port
+React	3000
+Django	8000
+Express	3030
+Flask	5050
+MongoDB	27017
+
+
+Open:
+http://localhost:3000/dealers
+⚙️ Configuration
+Create .env based on .env.example:
+DJANGO_SECRET_KEY=your-secret-key
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+MONGODB_URI=mongodb://127.0.0.1:27017/dealershipsDB
+BACKEND_URL=http://127.0.0.1:3030
+SENTIMENT_ANALYZER_URL=http://127.0.0.1:5050
+Never commit the real .env file.
+🗄️ Database Setup
+From the server directory:
+python manage.py makemigrations djangoapp
+python manage.py migrate
+Create a Django administrator:
+python manage.py createsuperuser
+Django Admin:
+http://localhost:8000/admin/
+<!-- ADD SCREENSHOT: Django Admin -->
+<!-- ![Django Admin](screenshots/django-admin.png) -->
+
+🔌 API Endpoints
+Authentication
+POST /djangoapp/login
+POST /djangoapp/register
+GET  /djangoapp/logout
+Dealerships
+GET /djangoapp/get_dealers
+GET /djangoapp/get_dealers/{state}
+GET /djangoapp/dealer/{id}
+Example:
+GET /djangoapp/get_dealers/Kansas
+GET /djangoapp/dealer/1
+Reviews
+GET  /djangoapp/reviews/dealer/{id}
+POST /djangoapp/add_review
+Cars
+GET /djangoapp/get_cars
+Sentiment
+GET /analyze/{text}
+🧪 API Testing
+curl http://localhost:8000/djangoapp/get_dealers
+curl http://localhost:8000/djangoapp/dealer/1
+curl http://localhost:8000/djangoapp/get_dealers/Kansas
+curl http://localhost:8000/djangoapp/reviews/dealer/1
+curl http://localhost:8000/djangoapp/get_cars
+
+🔄 CI/CD
+GitHub Actions workflow:
+.github/workflows/cicd.yml
+The workflow:
+1. Checks out the repository
+2. Sets up Python
+3. Installs backend dependencies
+4. Runs Django checks
+5. Applies migrations
+6. Sets up Node.js
+7. Installs frontend dependencies
+8. Builds the React frontend
+<!-- ADD SCREENSHOT: Successful GitHub Actions run -->
+<!-- ![CI/CD](screenshots/cicd-success.png) -->
+
+Capstone Task 23: CI/CD evidence.
+🐳 Docker & Kubernetes
+Docker:
+server/Dockerfile
+server/entrypoint.sh
+Kubernetes:
+server/deployment.yaml
+These files provide containerization and deployment configuration.
+☁️ Deployment
+Production URL:
+ADD DEPLOYED APPLICATION URL HERE
+<!-- ADD SCREENSHOT AFTER DEPLOYMENT -->
+<!-- ![Deployed Home](screenshots/deployed-home.png) -->
+
+<!-- ADD SCREENSHOT AFTER DEPLOYMENT -->
+<!-- ![Deployed Dealer](screenshots/deployed-dealer-details.png) -->
+
+<!-- ADD SCREENSHOT AFTER DEPLOYMENT -->
+<!-- ![Deployed Review](screenshots/deployed-review.png) -->
+
+🔒 Security
+The application includes:
+- CSRF protection
+- Session authentication
+- Protected review functionality
+- Environment-based configuration
+- Secret-key configuration
+- Input validation
+
+The project demonstrates:
+- React frontend
+- Django REST APIs
+- Authentication
+- Dealership browsing
+- State filtering
+- Car makes and models
+- Reviews
+- MongoDB
+- SQLite
+- Express service
+- Flask microservice
+- NLTK/VADER sentiment analysis
+- GitHub Actions CI/CD
+- Docker
+- Kubernetes configuration
+- Cloud deployment
+🎓 Project Information
+Project: Car Dealership Application
+Theme: Obsidian Luxury
+Course: IBM Full Stack Software Developer Professional Certificate
+Platform: Coursera
+Type: Full Stack Application Development Capstone
+👨‍💻 Author
+Developed as part of the IBM Full Stack Software Developer Professional Certificate Capstone Project.
